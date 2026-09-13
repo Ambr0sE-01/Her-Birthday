@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ffb6c1; /* Light pink background */
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* --- Cloud Animations --- */
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    opacity: 0.8;
+    animation: float 20s infinite linear;
+}
+.cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+.cloud1 { width: 100px; height: 30px; top: 10%; left: -100px; animation-duration: 25s; }
+.cloud1::before { width: 40px; height: 40px; top: -20px; left: 15px; }
+.cloud1::after { width: 30px; height: 30px; top: -10px; left: 55px; }
+
+.cloud2 { width: 120px; height: 40px; top: 30%; left: -150px; animation-duration: 35s; animation-delay: 5s; }
+.cloud2::before { width: 50px; height: 50px; top: -25px; left: 20px; }
+.cloud2::after { width: 40px; height: 40px; top: -15px; left: 70px; }
+
+.cloud3 { width: 80px; height: 25px; top: 70%; left: -100px; animation-duration: 20s; animation-delay: 10s; }
+.cloud3::before { width: 35px; height: 35px; top: -15px; left: 10px; }
+.cloud3::after { width: 25px; height: 25px; top: -10px; left: 40px; }
+
+@keyframes float {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(120vw); }
+}
+
+/* --- Envelope and Card Mechanics --- */
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+.envelope {
+    width: 300px;
+    height: 200px;
+    background-color: #d8bfd8; /* Lavender */
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-bottom: 130px solid #c8a2c8; /* Slightly darker lavender for depth */
+    z-index: 3;
+    pointer-events: none;
+}
+
+.flap {
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #e6e6fa; /* Light lavender */
+    z-index: 4;
+    transform-origin: top;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* When the JS adds the 'open' class */
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.card {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 180px;
+    background-color: white;
+    z-index: 2;
+    transition: transform 0.8s ease-in-out, width 0.8s, height 0.8s, z-index 0.8s;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* The card slides up out of the envelope */
+.envelope.open .card {
+    transform: translate(-50%, -100px);
+}
+
+/* When the JS adds the 'expanded' class to the card */
+.card.expanded {
+    transform: translate(-50%, -120px) scale(1.2);
+    z-index: 10;
+    cursor: default;
+}
+
+.card-content {
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    transition-delay: 0s;
+    padding: 15px;
+}
+
+/* Fades the picture and text in only after it expands */
+.card.expanded .card-content {
+    opacity: 1;
+    transition-delay: 0.6s; 
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffb6c1;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 0 0 5px 0;
+    color: #c8a2c8;
+    font-size: 1.2rem;
+}
+
+p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.4;
+}
