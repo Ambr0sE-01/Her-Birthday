@@ -24,17 +24,37 @@ body {
     background: white;
     border-radius: 50%;
 }
-.cloud1 { width: 100px; height: 30px; top: 10%; left: -100px; animation-duration: 25s; }
+
+.cloud1 { 
+    width: 100px; height: 30px; top: 10%; left: -100px; 
+    animation-duration: 15s; 
+}
 .cloud1::before { width: 40px; height: 40px; top: -20px; left: 15px; }
 .cloud1::after { width: 30px; height: 30px; top: -10px; left: 55px; }
 
-.cloud2 { width: 120px; height: 40px; top: 30%; left: -150px; animation-duration: 35s; animation-delay: 5s; }
+.cloud2 { 
+    width: 120px; height: 40px; top: 30%; left: -150px; 
+    animation-duration: 20s; 
+    animation-delay: 2s; 
+}
 .cloud2::before { width: 50px; height: 50px; top: -25px; left: 20px; }
 .cloud2::after { width: 40px; height: 40px; top: -15px; left: 70px; }
 
-.cloud3 { width: 80px; height: 25px; top: 70%; left: -100px; animation-duration: 20s; animation-delay: 10s; }
+.cloud3 { 
+    width: 80px; height: 25px; top: 70%; left: -100px; 
+    animation-duration: 12s; 
+    animation-delay: 4s; 
+}
 .cloud3::before { width: 35px; height: 35px; top: -15px; left: 10px; }
 .cloud3::after { width: 25px; height: 25px; top: -10px; left: 40px; }
+
+.cloud4 { 
+    width: 90px; height: 28px; top: 85%; left: -120px; 
+    animation-duration: 18s; 
+    animation-delay: 8s; 
+}
+.cloud4::before { width: 38px; height: 38px; top: -18px; left: 12px; }
+.cloud4::after { width: 28px; height: 28px; top: -12px; left: 45px; }
 
 @keyframes float {
     0% { transform: translateX(-200px); }
