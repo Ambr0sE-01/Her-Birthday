@@ -27,14 +27,14 @@ body {
 
 .cloud1 { 
     width: 100px; height: 30px; top: 10%; left: -100px; 
-    animation-duration: 15s; 
+    animation-duration: 5s; 
 }
 .cloud1::before { width: 40px; height: 40px; top: -20px; left: 15px; }
 .cloud1::after { width: 30px; height: 30px; top: -10px; left: 55px; }
 
 .cloud2 { 
     width: 120px; height: 40px; top: 30%; left: -150px; 
-    animation-duration: 20s; 
+    animation-duration: 15s; 
     animation-delay: 2s; 
 }
 .cloud2::before { width: 50px; height: 50px; top: -25px; left: 20px; }
