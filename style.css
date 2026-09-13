@@ -27,7 +27,7 @@ body {
 
 .cloud1 { 
     width: 100px; height: 30px; top: 10%; left: -100px; 
-    animation-duration: 5s; 
+    animation-duration: 8s; 
 }
 .cloud1::before { width: 40px; height: 40px; top: -20px; left: 15px; }
 .cloud1::after { width: 30px; height: 30px; top: -10px; left: 55px; }
